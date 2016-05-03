@@ -135,8 +135,8 @@ function! skeleton#DoDefaultReplacements(filename)
   call skeleton#Replace('BASENAME', basename)
   call skeleton#Replace('DATE', strftime('%a, %d %b %Y'))
   call skeleton#Replace('YEAR', strftime('%Y'))
-  call skeleton#Replace('AUTHOR', user)
-  call skeleton#Replace('EMAIL', email)
+  call skeleton#Replace('AUTHOR', substitute(user, '\n$', '', ''))
+  call skeleton#Replace('EMAIL', substitute(email, '\n$', '', ''))
 
   " Disable folding lest we delete more than the extra line
   normal! zn
