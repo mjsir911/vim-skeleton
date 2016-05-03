@@ -8,6 +8,9 @@ let s:filetype_extensions = {
       \ 'javascript':  'js',
       \ }
 
+" 'github' or 'name'
+let s:skeleton_user = 'github'
+
 function! s:template_path(filename)
   return expand(join([g:skeleton_template_dir, a:filename], '/'))
 endfunction
@@ -112,14 +115,28 @@ function! skeleton#DoReplacementsInDict(dict)
   endfor
 endfunction
 
+function! skeleton#Gitname()
+    if s:skeleton_user == 'github'
+        return system('git config --get github.user')
+    elseif s:skeleton_user == 'name'
+        return system ('git config --get user.name')
+    else
+        return ''
+    endif
+endfunction
+
 function! skeleton#DoDefaultReplacements(filename)
   let filename = fnamemodify(a:filename, ':t')
   let basename = fnamemodify(a:filename, ':t:r')
+  let user = skeleton#Gitname()
+  let email = system('git config --get user.email')
 
   call skeleton#Replace('FILENAME', filename)
   call skeleton#Replace('BASENAME', basename)
   call skeleton#Replace('DATE', strftime('%a, %d %b %Y'))
   call skeleton#Replace('YEAR', strftime('%Y'))
+  call skeleton#Replace('AUTHOR', user)
+  call skeleton#Replace('EMAIL', email)
 
   " Disable folding lest we delete more than the extra line
   normal! zn

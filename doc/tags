@@ -1,0 +1,13 @@
+:SkelEdit	skeleton.txt	/*:SkelEdit*
+:SkelInsert	skeleton.txt	/*:SkelInsert*
+Skeleton	skeleton.txt	/*Skeleton*
+g:skeleton_find_template	skeleton.txt	/*g:skeleton_find_template*
+g:skeleton_replacements	skeleton.txt	/*g:skeleton_replacements*
+g:skeleton_template_dir	skeleton.txt	/*g:skeleton_template_dir*
+skeleton	skeleton.txt	/*skeleton*
+skeleton-about	skeleton.txt	/*skeleton-about*
+skeleton-commands	skeleton.txt	/*skeleton-commands*
+skeleton-config	skeleton.txt	/*skeleton-config*
+skeleton-contents	skeleton.txt	/*skeleton-contents*
+skeleton-intro	skeleton.txt	/*skeleton-intro*
+skeleton.txt	skeleton.txt	/*skeleton.txt*
