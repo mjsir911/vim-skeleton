@@ -128,15 +128,15 @@ endfunction
 function! skeleton#DoDefaultReplacements(filename)
   let filename = fnamemodify(a:filename, ':t')
   let basename = fnamemodify(a:filename, ':t:r')
-  let user = skeleton#Gitname()
-  let email = system('git config --get user.email')
+  let author = g:skeleton_author
+  let email = g:skeleton_email
 
   call skeleton#Replace('FILENAME', filename)
   call skeleton#Replace('BASENAME', basename)
   call skeleton#Replace('DATE', strftime('%a, %d %b %Y'))
   call skeleton#Replace('YEAR', strftime('%Y'))
-  call skeleton#Replace('AUTHOR', substitute(user, '\n$', '', ''))
-  call skeleton#Replace('EMAIL', substitute(email, '\n$', '', ''))
+  call skeleton#Replace('AUTHOR', author)
+  call skeleton#Replace('EMAIL', email)
 
   " Disable folding lest we delete more than the extra line
   normal! zn

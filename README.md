@@ -40,11 +40,8 @@ Valid placeholders are:
 - @BASENAME@ The filename without extension
 - @DATE@ The date formatted as `'%a, %d %b %Y'`
 - @YEAR@ The current year
-- @AUTHOR@ The author. This is collected via `git config`, see the note after this list
-- @EMAIL@ The email. This is collected via `git config`
-
-**NOTE**: The @AUTHOR@ placeholder can be set via `let g:skeleton_user` to either '', 'github' or 'name'. 
-The default is 'github', you may change it. Make sure that the information is contained in your gitconfig or use ''.
+- @AUTHOR@ The author. Set by `g:skeleton_author` variable.
+- @EMAIL@ The email. Set by `g:skeleton_email` variable.
 
 It differs from a snippet plug-in in that it is concerned with initializing
 new buffers with boilerplate text without any manual intervention such as
