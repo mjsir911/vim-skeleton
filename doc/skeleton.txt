@@ -4,9 +4,10 @@ Noah Frederick                                           *Skeleton* *skeleton*
 ==============================================================================
 CONTENTS                                                   *skeleton-contents*
   1. Introduction.............................................|skeleton-intro|
-  2. Configuration...........................................|skeleton-config|
-  3. Commands..............................................|skeleton-commands|
-  4. About....................................................|skeleton-about|
+  2. Skeleton Files...........................................|skeleton-files|
+  3. Configuration...........................................|skeleton-config|
+  4. Commands..............................................|skeleton-commands|
+  5. About....................................................|skeleton-about|
 
 ==============================================================================
 INTRODUCTION                                                  *skeleton-intro*
@@ -38,6 +39,25 @@ you don't happen to want to use the template for a particular file, issuing
 |undo| (u) will restore your empty buffer.
 
 This plug-in is only available if 'compatible' is not set.
+
+==============================================================================
+SKELETON FILES                                                *skeleton-files*
+
+Search order for finding a file match
+
+Example: vim recognized file with an extension (test.c)
+  _.c
+  skel.c
+  vim_skeleton.c
+  skel.c
+
+Example: vim recognized file without an extension (Makefile)
+  _.makefile
+  skel.makefile
+
+Example: unknown file with extension (test.xyz)
+  vim_skeleton.xyz
+  skel.xyz
 
 ==============================================================================
 CONFIGURATION                                                *skeleton-config*
