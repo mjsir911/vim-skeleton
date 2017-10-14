@@ -129,7 +129,6 @@ function! skeleton#DoDefaultReplacements()
   call skeleton#Replace('CURSOR', '')
   " Substitutions move the cursor's location, so calling this last sets the
   " cursor's positions to wherever @CURSOR@ is " Equivalent to :cursor()
-  redraw
 endfunction
 
 function! skeleton#Replace(placeholder, replacement)
