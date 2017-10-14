@@ -19,9 +19,9 @@ function! g:skeleton_replacements.YEAR()
 endfunction
 
 function! g:skeleton_replacements.AUTHOR()
-	return system("git config --get user.name")
+	return substitute(system("git config --get user.name"), '\n$', '', '') 
 endfunction
 
 function! g:skeleton_replacements.EMAIL()
-	return system("git config --get user.email")
+	return substitute(system("git config --get user.email"), '\n$', '', '') 
 endfunction
