@@ -107,9 +107,11 @@ function! skeleton#ReadCustomTemplate(filename, type) abort
 endfunction
 
 function! skeleton#DoReplacementsInDict(dict)
+  let l:save = winsaveview()
   for [key, ReplaceFunc] in items(a:dict)
     call skeleton#Replace(key, call(ReplaceFunc, [], {}))
   endfor
+  call winrestview(l:save)
 endfunction
 
 function! skeleton#DoDefaultReplacements(filename)
