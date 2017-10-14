@@ -66,12 +66,12 @@ function! skeleton#Load(ext, filename, tmpl)
 
   " Do any custom replacements defined for file ext
   if exists('g:skeleton_replacements_'.type)
-    call skeleton#DoReplacementsInDict(g:skeleton_replacements_{type})
+    call skeleton#DoReplacementsInDict(g:skeleton_replacements_{type}, a:filename)
   endif
 
   " Do any custom replacements defined for all templates
   if exists('g:skeleton_replacements')
-    call skeleton#DoReplacementsInDict(g:skeleton_replacements)
+    call skeleton#DoReplacementsInDict(g:skeleton_replacements, a:filename)
   endif
 
   " Do the default replacements including positioning the cursor
@@ -106,9 +106,9 @@ function! skeleton#ReadCustomTemplate(filename, type) abort
   return 0
 endfunction
 
-function! skeleton#DoReplacementsInDict(dict)
+function! skeleton#DoReplacementsInDict(dict, filename)
   for [key, ReplaceFunc] in items(a:dict)
-    call skeleton#Replace(key, call(ReplaceFunc, [], {}))
+    call skeleton#Replace(key, call(ReplaceFunc, [a:filename], {}))
   endfor
 endfunction
 
