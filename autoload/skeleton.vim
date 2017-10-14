@@ -75,7 +75,7 @@ function! skeleton#Load(ext, filename, tmpl)
   endif
 
   " Do the default replacements including positioning the cursor
-  call skeleton#DoDefaultReplacements(a:filename)
+  call skeleton#DoDefaultReplacements()
 
   return 1
 endfunction
@@ -114,7 +114,7 @@ function! skeleton#DoReplacementsInDict(dict)
   call winrestview(l:save)
 endfunction
 
-function! skeleton#DoDefaultReplacements(filename)
+function! skeleton#DoDefaultReplacements()
   " Disable folding lest we delete more than the extra line
   normal! zn
 
@@ -127,6 +127,9 @@ function! skeleton#DoDefaultReplacements(filename)
   endif
 
   call skeleton#Replace('CURSOR', '')
+  " Substitutions move the cursor's location, so calling this last sets the
+  " cursor's positions to wherever @CURSOR@ is " Equivalent to :cursor()
+  redraw
 endfunction
 
 function! skeleton#Replace(placeholder, replacement)
